@@ -6,5 +6,5 @@ namespace Lune\Osmosis;
 
 interface DataSourceInterface
 {
-    public function apply(array $filters):DataSourceInterface;
+    public function applyFilters(array $filters):DataSourceInterface;
 }

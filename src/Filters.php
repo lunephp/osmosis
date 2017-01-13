@@ -65,7 +65,7 @@ class Filters implements FiltersInterface
 
     public function apply(DataSourceInterface $target):DataSourceInterface
     {
-        return $target->apply($this->filters);
+        return $target->applyFilters($this->filters);
     }
 
 
