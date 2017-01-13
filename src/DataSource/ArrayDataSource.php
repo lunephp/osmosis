@@ -19,7 +19,7 @@ class ArrayDataSource extends ArrayObject implements DataSourceInterface
 
             return array_reduce(array_keys($filters), function ($carry, $key) use ($item, $filters) {
                 if ($carry) {
-                    $value = $item[$key];
+                    $value = $item[$key]??null;
                     $operators = $filters[$key];
                     $carry = array_reduce($operators, function ($result, $operator) use ($value) {
                         if ($result) {
