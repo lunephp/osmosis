@@ -25,4 +25,6 @@ interface FiltersInterface
     public function lessThan(string $fieldname, $value):FiltersInterface;
 
     public function lessThanOrEqual(string $fieldname, $value):FiltersInterface;
+
+    public function apply(DataSourceInterface $target):DataSourceInterface;
 }
