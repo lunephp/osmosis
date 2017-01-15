@@ -61,7 +61,7 @@ Creates partial sql:
 
 ```php
 $filter = new Lune\Osmosis\Filter()
-$filter->equals('`ID`', 1);
+$filter->equals('ID', 1);
 
 $source = new Lune\Osmosis\DataSource\SQLDataSource();
 $result = $filter->apply($source);
@@ -71,8 +71,8 @@ $pdo = new \PDO(...);
 $statement = $pdo->prepare("SELECT * FROM `users` WHERE {$result}");
 $statement->execute($result->getVariables())->fetchAll();
 ```
-
-
+**Please note**
+Osmosis is by no means a complete query builder, nor does it aim to be one.
 
 ## Defining filters
 

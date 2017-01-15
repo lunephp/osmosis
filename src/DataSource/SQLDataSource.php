@@ -71,39 +71,39 @@ class SQLDataSource implements DataSourceInterface
         switch ($operator->getType()) {
             case FiltersInterface::FILTER_EQUALS:
                 $key = $this->addVariable($operator->getValue());
-                $this->filters[] = "`{$operator->getFieldname()}` = {$key}";
+                $this->filters[] = "{$operator->getFieldname()} = {$key}";
                 break;
             case FiltersInterface::FILTER_IN_ARRAY:
                 $keys = array_map(function ($value) {
                     return $this->addVariable($value);
                 }, $operator->getValue());
 
-                $this->filters[] = "`{$operator->getFieldname()}` IN (" . implode(',', $keys) . ")";
+                $this->filters[] = "{$operator->getFieldname()} IN (" . implode(',', $keys) . ")";
                 break;
 
             case FiltersInterface::FILTER_GREATER_THAN:
                 $key = $this->addVariable($operator->getValue());
-                $this->filters[] = "`{$operator->getFieldname()}` > {$key}";
+                $this->filters[] = "{$operator->getFieldname()} > {$key}";
                 break;
 
             case FiltersInterface::FILTER_GREATER_THAN_OR_EQUAL:
                 $key = $this->addVariable($operator->getValue());
-                $this->filters[] = "`{$operator->getFieldname()}` >= {$key}";
+                $this->filters[] = "{$operator->getFieldname()} >= {$key}";
                 break;
 
             case FiltersInterface::FILTER_LESS_THAN:
                 $key = $this->addVariable($operator->getValue());
-                $this->filters[] = "`{$operator->getFieldname()}` < {$key}";
+                $this->filters[] = "{$operator->getFieldname()} < {$key}";
                 break;
 
             case FiltersInterface::FILTER_LESS_THAN_OR_EQUAL:
                 $key = $this->addVariable($operator->getValue());
-                $this->filters[] = "`{$operator->getFieldname()}` <= {$key}";
+                $this->filters[] = "{$operator->getFieldname()} <= {$key}";
                 break;
 
             case FiltersInterface::FILTER_NOT:
                 $key = $this->addVariable($operator->getValue());
-                $this->filters[] = "`{$operator->getFieldname()}` <> {$key}";
+                $this->filters[] = "{$operator->getFieldname()} <> {$key}";
                 break;
 
             case FiltersInterface::FILTER_NOT_IN_ARRAY:
@@ -111,7 +111,7 @@ class SQLDataSource implements DataSourceInterface
                     return $this->addVariable($value);
                 }, $operator->getValue());
 
-                $this->filters[] = "`{$operator->getFieldname()}` NOT IN (" . implode(',', $keys) . ")";
+                $this->filters[] = "{$operator->getFieldname()} NOT IN (" . implode(',', $keys) . ")";
                 break;
 
             default:

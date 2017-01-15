@@ -19,7 +19,7 @@ class SQLFilterTest extends TestCase
 
         $query = $filters->apply(new SQLDataSource([], [], 'test'));
 
-        $this->assertEquals('`a` = :test_0', $query->getQueryString());
+        $this->assertEquals('a = :test_0', $query->getQueryString());
         $expected = [
             ':test_0' => 1
         ];
@@ -33,7 +33,7 @@ class SQLFilterTest extends TestCase
 
         $query = $filters->apply(new SQLDataSource([], [], 'test'));
 
-        $this->assertEquals('`a` IN (:test_0,:test_1)', $query->getQueryString());
+        $this->assertEquals('a IN (:test_0,:test_1)', $query->getQueryString());
 
         $expected = [
             ':test_0' => 1,
@@ -50,7 +50,7 @@ class SQLFilterTest extends TestCase
         $filters->greaterThan('a', 1);
 
         $query = $filters->apply(new SQLDataSource([], [], 'test'));
-        $this->assertEquals('`a` > :test_0', $query->getQueryString());
+        $this->assertEquals('a > :test_0', $query->getQueryString());
 
         $expected = [
             ':test_0' => 1
@@ -66,7 +66,7 @@ class SQLFilterTest extends TestCase
         $filters->greaterThanOrEqual('a', 1);
 
         $query = $filters->apply(new SQLDataSource([], [], 'test'));
-        $this->assertEquals('`a` >= :test_0', $query->getQueryString());
+        $this->assertEquals('a >= :test_0', $query->getQueryString());
 
         $expected = [
             ':test_0' => 1
@@ -81,7 +81,7 @@ class SQLFilterTest extends TestCase
         $filters->lessThan('a', 1);
 
         $query = $filters->apply(new SQLDataSource([], [], 'test'));
-        $this->assertEquals('`a` < :test_0', $query->getQueryString());
+        $this->assertEquals('a < :test_0', $query->getQueryString());
 
         $expected = [
             ':test_0' => 1
@@ -97,7 +97,7 @@ class SQLFilterTest extends TestCase
         $filters->lessThanOrEqual('a', 1);
 
         $query = $filters->apply(new SQLDataSource([], [], 'test'));
-        $this->assertEquals('`a` <= :test_0', $query->getQueryString());
+        $this->assertEquals('a <= :test_0', $query->getQueryString());
 
         $expected = [
             ':test_0' => 1
@@ -113,7 +113,7 @@ class SQLFilterTest extends TestCase
 
         $query = $filters->apply(new SQLDataSource([], [], 'test'));
 
-        $this->assertEquals('`a` <> :test_0', $query->getQueryString());
+        $this->assertEquals('a <> :test_0', $query->getQueryString());
         $expected = [
             ':test_0' => 1
         ];
@@ -127,7 +127,7 @@ class SQLFilterTest extends TestCase
 
         $query = $filters->apply(new SQLDataSource([], [], 'test'));
 
-        $this->assertEquals('`a` NOT IN (:test_0,:test_1)', $query->getQueryString());
+        $this->assertEquals('a NOT IN (:test_0,:test_1)', $query->getQueryString());
 
         $expected = [
             ':test_0' => 1,
