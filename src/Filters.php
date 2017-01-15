@@ -28,7 +28,7 @@ class Filters implements FiltersInterface
         return $this;
     }
 
-    public function inArray(string $fieldname, $value, bool $strict = true):FiltersInterface
+    public function inArray(string $fieldname, array $value, bool $strict = true):FiltersInterface
     {
         $this->addOperator(FiltersInterface::FILTER_IN_ARRAY, $fieldname, $value, $strict);
 
@@ -69,7 +69,7 @@ class Filters implements FiltersInterface
         return $this;
     }
 
-    public function notInArray(string $fieldname, $value, bool $strict = true):FiltersInterface
+    public function notInArray(string $fieldname, array $value, bool $strict = true):FiltersInterface
     {
         $this->addOperator(FiltersInterface::FILTER_NOT_IN_ARRAY, $fieldname, $value, $strict);
         return $this;

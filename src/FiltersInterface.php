@@ -15,10 +15,10 @@ interface FiltersInterface
     const FILTER_LESS_THAN_OR_EQUAL = 'lessThanOrEqual';
     const FILTER_NOT = 'not';
     const FILTER_NOT_IN_ARRAY = 'notInArray';
-    
+
     public function equals(string $fieldname, $value, bool $strict = true):FiltersInterface;
 
-    public function inArray(string $fieldname, $value, bool $strict = true):FiltersInterface;
+    public function inArray(string $fieldname, array $value, bool $strict = true):FiltersInterface;
 
     public function greaterThan(string $fieldname, $value):FiltersInterface;
 
@@ -30,7 +30,7 @@ interface FiltersInterface
 
     public function not(string $fieldname, $value, bool $strict = true):FiltersInterface;
 
-    public function notInArray(string $fieldname, $value, bool $strict = true):FiltersInterface;
+    public function notInArray(string $fieldname, array $value, bool $strict = true):FiltersInterface;
 
     public function apply(DataSourceInterface $target):DataSourceInterface;
 }
