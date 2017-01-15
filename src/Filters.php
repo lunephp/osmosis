@@ -63,6 +63,18 @@ class Filters implements FiltersInterface
         return $this;
     }
 
+    public function not(string $fieldname, $value, bool $strict = true):FiltersInterface
+    {
+        $this->addOperator(FiltersInterface::FILTER_NOT, $fieldname, $value, $strict);
+        return $this;
+    }
+
+    public function notInArray(string $fieldname, $value, bool $strict = true):FiltersInterface
+    {
+        $this->addOperator(FiltersInterface::FILTER_NOT_IN_ARRAY, $fieldname, $value, $strict);
+        return $this;
+    }
+
     public function apply(DataSourceInterface $target):DataSourceInterface
     {
         return $target->applyFilters($this->filters);

@@ -109,4 +109,32 @@ class ArrayFilterTest extends TestCase
         ];
         $this->assertEquals($expected, $this->getResultsArray($filters, $source));
     }
+
+    public function testNot()
+    {
+        $filters = new Filters();
+        $filters->not('a', 1);
+        $source = $this->getArraySource();
+
+        $expected = [
+            ['a' => 2, 'b' => 20],
+            ['a' => 3, 'b' => 30],
+            ['a' => 4, 'b' => 40],
+        ];
+        $this->assertEquals($expected, $this->getResultsArray($filters, $source));
+    }
+
+
+    public function testNotInArray()
+    {
+        $filters = new Filters();
+        $filters->notInArray('a', [1, 2]);
+        $source = $this->getArraySource();
+
+        $expected = [
+            ['a' => 3, 'b' => 30],
+            ['a' => 4, 'b' => 40],
+        ];
+        $this->assertEquals($expected, $this->getResultsArray($filters, $source));
+    }
 }

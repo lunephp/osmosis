@@ -59,6 +59,12 @@ class ArrayDataSource extends ArrayObject implements DataSourceInterface
             case FiltersInterface::FILTER_LESS_THAN_OR_EQUAL:
                 return $value <= $operator->getValue();
 
+            case FiltersInterface::FILTER_NOT:
+                return $operator->isStrict() ? $value !== $operator->getValue() : $value != $operator->getValue();
+
+            case FiltersInterface::FILTER_NOT_IN_ARRAY:
+                return ! in_array($value, $operator->getValue(), $operator->isStrict());
+
             default:
                 throw new \LogicException(sprintf('Unknown operator: %s', $operator->getType()));
         }
